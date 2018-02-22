@@ -19,6 +19,7 @@ import com.intellij.lang.FileASTNode;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * A PSI element representing a file.
@@ -43,6 +44,7 @@ public interface PsiFile extends PsiFileSystemItem {
    * @return the virtual file, or null if the file exists only in memory.
    */
   @Override
+  @Nullable
   VirtualFile getVirtualFile();
 
   /**
@@ -50,9 +52,11 @@ public interface PsiFile extends PsiFileSystemItem {
    *
    * @return the containing directory, or null if the file exists only in memory.
    */
+  @Nullable
   PsiDirectory getContainingDirectory();
 
   @Override
+  @Nullable
   PsiDirectory getParent();
 
   /**
@@ -98,6 +102,7 @@ public interface PsiFile extends PsiFileSystemItem {
   FileViewProvider getViewProvider();
 
   @Override
+  @Nullable
   FileASTNode getNode();
 
   /**
